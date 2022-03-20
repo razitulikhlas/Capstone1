@@ -1,6 +1,5 @@
 package com.razit.core.data.source
 
-import android.util.Log
 import com.razit.core.data.source.remote.network.ApiResponse
 import kotlinx.coroutines.flow.*
 
@@ -21,7 +20,7 @@ abstract class NetworkBoundResource<ResultType, RequestType> {
                 }
                 is ApiResponse.Error -> {
                     onFetchFailed()
-                    emit(Resource.Error<ResultType>(apiResponse.errorMessage))
+                    emit(Resource.Error(apiResponse.errorMessage))
                 }
             }
         } else {
