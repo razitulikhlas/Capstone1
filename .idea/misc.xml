@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/activity_main.xml" value="0.27309782608695654" />
+        <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/fragment_detail.xml" value="0.27309782608695654" />
+        <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/fragment_film.xml" value="0.13728470111448834" />
+        <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/fragment_movies.xml" value="0.13728470111448834" />
+        <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/fragment_search_movies.xml" value="0.2667572463768116" />
+        <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/layout_error.xml" value="0.27309782608695654" />
+        <entry key="..\:/Belajar/MADE/Capstone1/core/src/main/res/drawable/bg_cardview.xml" value="0.149" />
+        <entry key="..\:/Belajar/MADE/Capstone1/core/src/main/res/drawable/bg_tab_selected.xml" value="0.123" />
+        <entry key="..\:/Belajar/MADE/Capstone1/core/src/main/res/drawable/ic_like.xml" value="0.123" />
+        <entry key="..\:/Belajar/MADE/Capstone1/core/src/main/res/layout/item_film.xml" value="0.15045592705167174" />
+        <entry key="..\:/Belajar/MADE/Capstone1/favorite/src/main/res/layout/activity_favorite.xml" value="0.18" />
+        <entry key="..\:/Belajar/MADE/Capstone1/favorite/src/main/res/layout/fragment_detail.xml" value="0.26132246376811596" />
+        <entry key="..\:/Belajar/MADE/Capstone1/favorite/src/main/res/layout/fragment_favorite_detail.xml" value="0.1" />
+        <entry key="..\:/Belajar/MADE/Capstone1/favorite/src/main/res/layout/fragment_favorite_film.xml" value="0.1" />
+        <entry key="..\:/Belajar/MADE/Capstone1/favorite/src/main/res/layout/fragment_favorite_home.xml" value="0.1" />
+        <entry key="..\:/Belajar/MADE/Capstone1/favorite/src/main/res/layout/fragment_film.xml" value="0.26132246376811596" />
+        <entry key="..\:/Belajar/MADE/Capstone1/favorite/src/main/res/layout/fragment_home.xml" value="0.26132246376811596" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

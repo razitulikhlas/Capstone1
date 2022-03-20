@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
+    tools:context=".view.HomeFavoriteFragment">
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical"
+     tools:ignore="UselessParent">
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_margin="20dp"
+         android:text="@string/favorite"
+         android:textColor="@color/white"
+         android:textSize="30sp"
+         android:textStyle="bold"
+         />
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginHorizontal="20dp"
+         android:background="@drawable/bg_tab"
+         android:padding="5dp"
+         >
+         <com.google.android.material.tabs.TabLayout
+             android:id="@+id/tabs"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="#2B2B38"
+             app:tabIndicatorColor="#323542"
+             app:tabIndicator="@drawable/bg_tab_selected"
+             app:tabMode="fixed"
+             app:tabMaxWidth="0dp"
+             app:tabGravity="fill"
+             app:tabTextColor="#5C5C67"
+             app:tabIndicatorGravity="stretch"
+             app:tabSelectedTextColor="@color/white"
+             app:tabIndicatorAnimationMode="elastic"
+             />
+     </LinearLayout>
+     <androidx.viewpager2.widget.ViewPager2
+         android:id="@+id/view_pagerLocal"
+         android:layout_marginTop="20dp"
+         android:layout_width="match_parent"
+         android:backgroundTint="#24242F"
+         android:layout_height="match_parent" />
+
+ </LinearLayout>
+
+</FrameLayout>
