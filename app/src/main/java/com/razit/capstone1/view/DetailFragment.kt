@@ -18,7 +18,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class DetailFragment : Fragment() {
-
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
     private val viewModelMovies: HomeViewModel by viewModel()

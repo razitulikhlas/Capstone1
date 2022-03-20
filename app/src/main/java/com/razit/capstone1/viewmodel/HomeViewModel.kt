@@ -5,9 +5,6 @@ import androidx.lifecycle.asLiveData
 import com.razit.core.BuildConfig
 import com.razit.core.domain.model.Film
 import com.razit.core.domain.usecase.FilmUseCase
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.FlowPreview
-import kotlinx.coroutines.ObsoleteCoroutinesApi
 import kotlinx.coroutines.channels.BroadcastChannel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.asFlow
@@ -15,9 +12,7 @@ import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.mapLatest
 
-@ExperimentalCoroutinesApi
-@FlowPreview
-@OptIn(ObsoleteCoroutinesApi::class)
+
 class HomeViewModel(private val filmUseCase: FilmUseCase) : ViewModel() {
 
 
