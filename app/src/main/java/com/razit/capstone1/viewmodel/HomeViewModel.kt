@@ -1,8 +1,10 @@
 package com.razit.capstone1.viewmodel
 
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.razit.core.BuildConfig
+import com.razit.core.data.source.Resource
 import com.razit.core.domain.model.Film
 import com.razit.core.domain.usecase.FilmUseCase
 import kotlinx.coroutines.channels.BroadcastChannel
@@ -14,13 +16,22 @@ import kotlinx.coroutines.flow.mapLatest
 
 
 class HomeViewModel(private val filmUseCase: FilmUseCase) : ViewModel() {
-
+    val filmMovies = MediatorLiveData<Resource<List<Film>>>()
+    val filmTv = MediatorLiveData<Resource<List<Film>>>()
 
     val queryChannel = BroadcastChannel<String>(Channel.CONFLATED)
 
-    val filmMovies = filmUseCase.getMovies(BuildConfig.MOVIES).asLiveData()
-    val filmTv = filmUseCase.getTvShow(BuildConfig.TVSHOW).asLiveData()
+    fun getMovies() {
+        filmMovies.addSource(filmUseCase.getMovies(BuildConfig.MOVIES).asLiveData()) {
+            filmMovies.value = it
+        }
+    }
 
+    fun getTv() {
+        filmTv.addSource(filmUseCase.getTvShow(BuildConfig.TVSHOW).asLiveData()) {
+            filmTv.value = it
+        }
+    }
 
     val searchResult = queryChannel.asFlow()
         .debounce(300)

@@ -1,7 +1,6 @@
 package com.razit.capstone1.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,10 +24,7 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
     private lateinit var moviesAdapter: MoviesAdapter
 
     companion object {
-
         const val CATEGORY = "category"
-        private const val TAG = "FilmFragment"
-
         fun newInstance(category: String): FilmFragment {
             val args = Bundle()
             args.putSerializable(CATEGORY, category)
@@ -61,16 +57,24 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
         }
         moviesAdapter = MoviesAdapter()
         moviesAdapter.setListener(this)
+
+        binding.frameError.btnReload.setOnClickListener {
+            if (category == BuildConfig.MOVIES) {
+                getMovies()
+            } else {
+                getTvShow()
+            }
+        }
     }
 
     private fun getMovies() {
+        viewModelMovies.getMovies()
         viewModelMovies.filmMovies.observe(this) { film ->
             if (film != null) {
                 when (film) {
-                    is Resource.Loading -> Log.e(TAG, "onCreate: loading")
+                    is Resource.Loading -> showLoading()
                     is Resource.Success -> {
-//                        Log.e(TAG, "onCreate: data ${film.data?.get(0)?.type}")
-                        binding.progressbar.visibility = View.GONE
+                        showData()
                         film.data?.let { listFilm ->
                             moviesAdapter.setData(listFilm)
                         }
@@ -79,21 +83,20 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
                             rcvFilm.adapter = moviesAdapter
                         }
                     }
-                    is Resource.Error -> {
-                        Log.e(TAG, "onCreate: error message ${film.message}")
-                    }
+                    is Resource.Error -> showError()
                 }
             }
         }
     }
 
     private fun getTvShow() {
+        viewModelMovies.getTv()
         viewModelMovies.filmTv.observe(this) { film ->
             if (film != null) {
                 when (film) {
-                    is Resource.Loading -> Log.e(TAG, "onCreate: loading")
+                    is Resource.Loading -> showLoading()
                     is Resource.Success -> {
-                        binding.progressbar.visibility = View.GONE
+                        showData()
                         film.data?.let { listFilm ->
                             moviesAdapter.setData(listFilm)
                         }
@@ -102,10 +105,7 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
                             rcvFilm.adapter = moviesAdapter
                         }
                     }
-                    is Resource.Error -> {
-
-                        Log.e(TAG, "onCreate: error message ${film.message}")
-                    }
+                    is Resource.Error -> showError()
                 }
             }
         }
@@ -114,6 +114,33 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
     override fun onClick(movies: Film) {
         val directions = HomeFragmentDirections.actionHomeFragmentToDetailFragment(movies)
         findNavController().navigate(directions)
+    }
+
+    private fun showLoading() {
+        with(binding) {
+            shimmmers.startShimmer()
+            shimmmers.visibility = View.VISIBLE
+            rcvFilm.visibility = View.GONE
+            frameError.root.visibility = View.GONE
+        }
+    }
+
+    private fun showData() {
+        with(binding) {
+            shimmmers.stopShimmer()
+            shimmmers.visibility = View.GONE
+            rcvFilm.visibility = View.VISIBLE
+            frameError.root.visibility = View.GONE
+        }
+    }
+
+    private fun showError() {
+        with(binding) {
+            shimmmers.stopShimmer()
+            shimmmers.visibility = View.GONE
+            rcvFilm.visibility = View.GONE
+            frameError.root.visibility = View.VISIBLE
+        }
     }
 
     override fun onDestroy() {
