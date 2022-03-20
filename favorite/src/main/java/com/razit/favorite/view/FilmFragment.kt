@@ -86,4 +86,9 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
         findNavController().navigate(directions)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }
