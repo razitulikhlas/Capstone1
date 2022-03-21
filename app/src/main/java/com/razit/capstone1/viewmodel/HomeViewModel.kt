@@ -40,11 +40,11 @@ class HomeViewModel(private val filmUseCase: FilmUseCase) : ViewModel() {
             filmUseCase.searchMovies(it).asLiveData()
         }.asLiveData()
 
-    fun saveToFavorite(filmEntity: Film) = filmUseCase.saveFavoriteMovies(filmEntity)
+    suspend fun saveToFavorite(filmEntity: Film) = filmUseCase.saveFavoriteMovies(filmEntity)
 
-    fun checkFilmExist(id: Int, type: String): Boolean = filmUseCase.checkFilmExist(id, type)
+    suspend fun checkFilmExist(id: Int, type: String): Boolean = filmUseCase.checkFilmExist(id, type)
 
-    fun deleteToFavorite(film: Film) = filmUseCase.deleteFavoriteMovies(film)
+    suspend fun deleteToFavorite(film: Film) = filmUseCase.deleteFavoriteMovies(film)
 
 
 }

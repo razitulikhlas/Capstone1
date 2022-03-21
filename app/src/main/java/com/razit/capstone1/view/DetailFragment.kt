@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -14,6 +15,7 @@ import com.razit.capstone1.R
 import com.razit.capstone1.databinding.FragmentDetailBinding
 import com.razit.capstone1.viewmodel.HomeViewModel
 import com.razit.core.BuildConfig
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -52,26 +54,34 @@ class DetailFragment : Fragment() {
                 tvLanguage.text = it.language
                 tvDetailRating.text = it.rating.toString()
 
-                if (viewModelMovies.checkFilmExist(it.id!!, it.type!!)) {
-                    status = true
-                    binding.imgFavorite.setImageResource(R.drawable.ic_favorite_active)
-                } else {
-                    status = false
-                    binding.imgFavorite.setImageResource(R.drawable.ic_favorite)
+                lifecycleScope.launch {
+                    if (viewModelMovies.checkFilmExist(it.id!!, it.type!!)) {
+                        status = true
+                        binding.imgFavorite.setImageResource(R.drawable.ic_favorite_active)
+                    } else {
+                        status = false
+                        binding.imgFavorite.setImageResource(R.drawable.ic_favorite)
+                    }
                 }
+
             }
 
             imgFavorite.setOnClickListener {
 
                 if (status) {
                     status = false
-                    viewModelMovies.deleteToFavorite(film)
+                    lifecycleScope.launch {
+                        viewModelMovies.deleteToFavorite(film)
+                    }
                     binding.imgFavorite.setImageResource(R.drawable.ic_favorite)
                     Toast.makeText(requireContext(), R.string.deleteSuccess, Toast.LENGTH_SHORT)
                         .show()
                 } else {
                     status = true
-                    viewModelMovies.saveToFavorite(film)
+                    lifecycleScope.launch {
+                        viewModelMovies.saveToFavorite(film)
+                    }
+
                     binding.imgFavorite.setImageResource(R.drawable.ic_favorite_active)
                     Toast.makeText(requireContext(), R.string.saveSuccess, Toast.LENGTH_SHORT)
                         .show()

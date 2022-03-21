@@ -30,6 +30,11 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        createFragment()
+    }
+
     companion object {
         const val CATEGORY = "category"
 
@@ -43,10 +48,7 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
     }
 
 
-    override fun onResume() {
-        super.onResume()
-        createFragment()
-    }
+
 
     private fun createFragment() {
         val category = arguments?.getString(CATEGORY)

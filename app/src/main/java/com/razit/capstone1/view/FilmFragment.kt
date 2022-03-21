@@ -35,9 +35,8 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
         }
     }
 
-
-    override fun onResume() {
-        super.onResume()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         createFragment()
     }
 
@@ -70,7 +69,7 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
 
     private fun getMovies() {
         viewModelMovies.getMovies()
-        viewModelMovies.filmMovies.observe(this) { film ->
+        viewModelMovies.filmMovies.observe(viewLifecycleOwner) { film ->
             if (film != null) {
                 when (film) {
                     is Resource.Loading -> showLoading()
@@ -92,7 +91,7 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
 
     private fun getTvShow() {
         viewModelMovies.getTv()
-        viewModelMovies.filmTv.observe(this) { film ->
+        viewModelMovies.filmTv.observe(viewLifecycleOwner) { film ->
             if (film != null) {
                 when (film) {
                     is Resource.Loading -> showLoading()

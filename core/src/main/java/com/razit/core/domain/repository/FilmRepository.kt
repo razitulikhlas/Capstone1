@@ -81,17 +81,17 @@ class FilmRepository(
         }
     }
 
-    override fun saveFavoriteMovies(film: Film) {
+    override suspend fun saveFavoriteMovies(film: Film) {
         val data = MapperMovies.mapDomainToFavorite(film)
         localDataSource.saveFavorite(data)
     }
 
-    override fun deleteFavoriteMovies(film: Film) {
+    override suspend fun deleteFavoriteMovies(film: Film) {
         val data = MapperMovies.mapDomainToFavorite(film)
         localDataSource.deleteFavorite(data)
     }
 
-    override fun checkFilmExist(id: Int, type: String): Boolean {
+    override suspend fun checkFilmExist(id: Int, type: String): Boolean {
         return localDataSource.checkFilmExist(id,type)
     }
 

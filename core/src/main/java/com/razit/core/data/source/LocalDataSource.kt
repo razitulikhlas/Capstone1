@@ -4,10 +4,8 @@ import com.razit.core.data.source.local.FavoriteFilmEntity
 import com.razit.core.data.source.local.FilmEntity
 import com.razit.core.data.source.local.MoviesDao
 import kotlinx.coroutines.flow.Flow
-import java.util.concurrent.Callable
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import java.util.concurrent.Future
 
 class LocalDataSource(private val moviesDao: MoviesDao) {
 
@@ -20,16 +18,10 @@ class LocalDataSource(private val moviesDao: MoviesDao) {
 
     suspend fun insertFilm(list: List<FilmEntity>) = moviesDao.insertAll(list)
 
-    fun saveFavorite(filmEntity: FavoriteFilmEntity): Future<Unit> =
-        executorService.submit(Callable {
-            moviesDao.insertFavorite(filmEntity)
-        })
+    suspend fun saveFavorite(filmEntity: FavoriteFilmEntity) = moviesDao.insertFavorite(filmEntity)
 
-    fun deleteFavorite(filmEntity: FavoriteFilmEntity) = executorService.submit(Callable {
+    suspend fun deleteFavorite(filmEntity: FavoriteFilmEntity) =
         moviesDao.deleteFavorite(filmEntity)
-    })!!
 
-    fun checkFilmExist(id: Int, type: String): Boolean = executorService.submit(Callable {
-        moviesDao.checkFilmExist(id, type)
-    }).get()
+    suspend fun checkFilmExist(id: Int, type: String): Boolean = moviesDao.checkFilmExist(id, type)
 }

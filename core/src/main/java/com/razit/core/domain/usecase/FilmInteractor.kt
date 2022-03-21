@@ -9,8 +9,8 @@ class FilmInteractor(private val repository: IFilmRepository):FilmUseCase {
     override fun getMovies(type: String): Flow<Resource<List<Film>>> = repository.getMovies(type)
     override fun getTvShow(type: String): Flow<Resource<List<Film>>> = repository.getTvShow(type)
     override fun searchMovies(query: String): Flow<Resource<List<Film>>> = repository.searchMovies(query)
-    override fun saveFavoriteMovies(film: Film) = repository.saveFavoriteMovies(film)
-    override fun checkFilmExist(id: Int, type: String): Boolean = repository.checkFilmExist(id,type)
-    override fun deleteFavoriteMovies(film: Film) = repository.deleteFavoriteMovies(film)
+    override suspend fun saveFavoriteMovies(film: Film) = repository.saveFavoriteMovies(film)
+    override suspend fun checkFilmExist(id: Int, type: String): Boolean = repository.checkFilmExist(id,type)
+    override suspend fun deleteFavoriteMovies(film: Film) = repository.deleteFavoriteMovies(film)
     override fun getMoviesFavorite(type: String): Flow<List<Film>> = repository.getMoviesFavorite(type)
 }

@@ -10,8 +10,8 @@ interface IFilmRepository {
     fun getTvShow(type: String): Flow<Resource<List<Film>>>
     fun getMoviesFavorite(type: String): Flow<List<Film>>
     fun searchMovies(query: String): Flow<Resource<List<Film>>>
-    fun saveFavoriteMovies(film: Film)
-    fun deleteFavoriteMovies(film: Film)
-    fun checkFilmExist(id: Int, type: String): Boolean
+    suspend fun saveFavoriteMovies(film: Film)
+    suspend fun deleteFavoriteMovies(film: Film)
+    suspend fun checkFilmExist(id: Int, type: String): Boolean
 
 }

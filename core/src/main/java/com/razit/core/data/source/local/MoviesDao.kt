@@ -8,19 +8,19 @@ import kotlinx.coroutines.flow.Flow
 interface MoviesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(movies: List<FilmEntity>)
+    suspend fun insertAll(movies: List<FilmEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertFavorite(detailFilmEntity: FavoriteFilmEntity)
+    suspend fun insertFavorite(detailFilmEntity: FavoriteFilmEntity)
 
     @Delete
-    fun deleteFavorite(filmEntity: FavoriteFilmEntity)
+    suspend fun deleteFavorite(filmEntity: FavoriteFilmEntity)
 
     @Query("SELECT * FROM TBL_MOVIES_FAVORITE  WHERE id = :id AND type = :type")
     fun getDetail(id: Int, type: String): LiveData<FavoriteFilmEntity>
 
     @Query("SELECT EXISTS(SELECT * FROM TBL_MOVIES_FAVORITE WHERE id = :id  AND type= :type)")
-    fun checkFilmExist(id: Int, type: String): Boolean
+    suspend fun checkFilmExist(id: Int, type: String): Boolean
 
     @Query("SELECT * FROM TBL_MOVIES  WHERE type = :type")
     fun getAllFilmByType(type: String): Flow<List<FilmEntity>>
