@@ -75,6 +75,7 @@ class HomeFragment : Fragment() {
         mediator = null
         binding.viewPager.adapter = null
         sectionsPagerAdapter = null
+        FilmFragment.newInstance(null)
         binding.viewPager.removeOnAttachStateChangeListener(null)
         binding.tabs.clearOnTabSelectedListeners()
         binding.tabs.setupWithViewPager(null)

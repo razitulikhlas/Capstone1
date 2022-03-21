@@ -54,6 +54,7 @@ class HomeFavoriteFragment : Fragment() {
     }
 
     override fun onDestroyView() {
+        FilmFragment.newInstance(null)
         mediator?.detach()
         mediator = null
         binding.viewPagerLocal.adapter = null

@@ -33,7 +33,7 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
     companion object {
         const val CATEGORY = "category"
 
-        fun newInstance(category: String): FilmFragment {
+        fun newInstance(category: String?): FilmFragment {
             val args = Bundle()
             args.putSerializable(CATEGORY, category)
             val fragment = FilmFragment()
@@ -87,9 +87,11 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
+        binding.rcvFilm.adapter = null
         _binding = null
         moviesAdapter = null
+        super.onDestroyView()
+
     }
 
 }
