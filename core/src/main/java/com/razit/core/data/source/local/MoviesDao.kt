@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 interface MoviesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(movies: List<FilmEntity>)
+    fun insertAll(movies: List<FilmEntity>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertFavorite(detailFilmEntity: FavoriteFilmEntity)
