@@ -1,6 +1,6 @@
-package com.razit.favorite.di
+package com.razit.favorite.diFav
 
-import com.razit.favorite.viewmodel.MoviesViewModel
+import com.razit.favorite.viewmodelFav.MoviesViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

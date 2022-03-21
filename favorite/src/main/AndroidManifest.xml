@@ -15,7 +15,7 @@
 
     <application>
         <activity
-            android:name=".view.FavoriteActivity"
+            android:name=".viewFav.FavoriteActivity"
             android:exported="false" />
     </application>
 

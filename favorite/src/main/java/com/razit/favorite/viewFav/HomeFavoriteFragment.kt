@@ -1,4 +1,4 @@
-package com.razit.favorite.view
+package com.razit.favorite.viewFav
 
 import android.os.Bundle
 import android.view.LayoutInflater

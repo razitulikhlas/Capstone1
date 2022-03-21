@@ -1,4 +1,4 @@
-package com.razit.favorite.viewmodel
+package com.razit.favorite.viewmodelFav
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData

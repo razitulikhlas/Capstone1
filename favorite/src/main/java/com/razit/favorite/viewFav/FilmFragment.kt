@@ -1,4 +1,4 @@
-package com.razit.favorite.view
+package com.razit.favorite.viewFav
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import com.razit.core.BuildConfig
 import com.razit.core.adapter.MoviesAdapter
 import com.razit.core.domain.model.Film
 import com.razit.favorite.databinding.FragmentFavoriteFilmBinding
-import com.razit.favorite.viewmodel.MoviesViewModel
+import com.razit.favorite.viewmodelFav.MoviesViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

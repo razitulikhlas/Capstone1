@@ -1,9 +1,9 @@
-package com.razit.favorite.view
+package com.razit.favorite.viewFav
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.razit.favorite.R
-import com.razit.favorite.di.viewModuleFavorite
+import com.razit.favorite.diFav.viewModuleFavorite
 import org.koin.core.context.loadKoinModules
 
 class FavoriteActivity : AppCompatActivity() {

@@ -6,7 +6,7 @@
     app:startDestination="@id/homeFavoriteFragment">
     <fragment
         android:id="@+id/homeFavoriteFragment"
-        android:name="com.razit.favorite.view.HomeFavoriteFragment"
+        android:name="com.razit.favorite.viewFav.HomeFavoriteFragment"
         android:label="fragment_favorite_home"
         tools:layout="@layout/fragment_favorite_home" >
         <action

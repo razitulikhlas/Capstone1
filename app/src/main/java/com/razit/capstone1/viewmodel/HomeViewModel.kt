@@ -42,7 +42,8 @@ class HomeViewModel(private val filmUseCase: FilmUseCase) : ViewModel() {
 
     suspend fun saveToFavorite(filmEntity: Film) = filmUseCase.saveFavoriteMovies(filmEntity)
 
-    suspend fun checkFilmExist(id: Int, type: String): Boolean = filmUseCase.checkFilmExist(id, type)
+    suspend fun checkFilmExist(id: Int, type: String): Boolean =
+        filmUseCase.checkFilmExist(id, type)
 
     suspend fun deleteToFavorite(film: Film) = filmUseCase.deleteFavoriteMovies(film)
 
