@@ -1,12 +1,13 @@
 package com.razit.favorite.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
+import com.razit.capstone1.R
 import com.razit.core.adapter.SectionsPagerAdapter
 import com.razit.favorite.databinding.FragmentFavoriteHomeBinding
 
@@ -19,6 +20,7 @@ class HomeFavoriteFragment : Fragment() {
     )
     private var _binding: FragmentFavoriteHomeBinding? = null
     private val binding get() = _binding!!
+    private var mediator: TabLayoutMediator? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,27 +35,15 @@ class HomeFavoriteFragment : Fragment() {
         val sectionsPagerAdapter =
             SectionsPagerAdapter(lifecycle, childFragmentManager, listFragment)
         binding.viewPagerLocal.adapter = sectionsPagerAdapter
-        binding.tabs.addTab(binding.tabs.newTab().setText(com.razit.capstone1.R.string.movies))
-        binding.tabs.addTab(binding.tabs.newTab().setText(com.razit.capstone1.R.string.tvShow))
 
-
-        binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                tab?.position?.let {
-                    binding.viewPagerLocal.currentItem = it
-                }
-
+        mediator = TabLayoutMediator(binding.tabs, binding.viewPagerLocal) { tab, position ->
+            if (position == 0) {
+                tab.text = getString(R.string.movies)
+            } else if (position == 1) {
+                tab.text = getString(R.string.tvShow)
             }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-
-            }
-
-        })
+        }
+        mediator?.attach()
 
         binding.viewPagerLocal.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
@@ -64,8 +54,11 @@ class HomeFavoriteFragment : Fragment() {
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
+        mediator?.detach()
+        mediator = null
+        binding.viewPagerLocal.adapter = null
         _binding = null
+        super.onDestroyView()
     }
 
 }

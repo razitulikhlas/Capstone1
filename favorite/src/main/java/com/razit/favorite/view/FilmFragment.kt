@@ -20,7 +20,7 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
     private var _binding: FragmentFavoriteFilmBinding? = null
     private val binding get() = _binding!!
     private val viewModelMovies: MoviesViewModel by viewModel()
-    private lateinit var moviesAdapter: MoviesAdapter
+    private var moviesAdapter: MoviesAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,13 +56,13 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
             getTvShow()
         }
         moviesAdapter = MoviesAdapter()
-        moviesAdapter.setListener(this)
+        moviesAdapter?.setListener(this)
 
     }
 
     private fun getTvShow() {
         viewModelMovies.tvShow.observe(viewLifecycleOwner) { film ->
-            moviesAdapter.setData(film)
+            moviesAdapter?.setData(film)
             with(binding) {
                 rcvFilm.layoutManager = LinearLayoutManager(requireActivity())
                 rcvFilm.adapter = moviesAdapter
@@ -72,7 +72,7 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
 
     private fun getMovies() {
         viewModelMovies.movies.observe(viewLifecycleOwner) { film ->
-            moviesAdapter.setData(film)
+            moviesAdapter?.setData(film)
             with(binding) {
                 rcvFilm.layoutManager = LinearLayoutManager(requireActivity())
                 rcvFilm.adapter = moviesAdapter
@@ -89,6 +89,7 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+        moviesAdapter = null
     }
 
 }

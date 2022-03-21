@@ -21,7 +21,8 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
     private var _binding: FragmentFilmBinding? = null
     private val binding get() = _binding!!
     private val viewModelMovies: HomeViewModel by viewModel()
-    private lateinit var moviesAdapter: MoviesAdapter
+    private var moviesAdapter: MoviesAdapter? = null
+
 
     companion object {
         const val CATEGORY = "category"
@@ -56,7 +57,7 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
             getTvShow()
         }
         moviesAdapter = MoviesAdapter()
-        moviesAdapter.setListener(this)
+        moviesAdapter?.setListener(this)
 
         binding.frameError.btnReload.setOnClickListener {
             if (category == BuildConfig.MOVIES) {
@@ -76,7 +77,7 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
                     is Resource.Success -> {
                         showData()
                         film.data?.let { listFilm ->
-                            moviesAdapter.setData(listFilm)
+                            moviesAdapter?.setData(listFilm)
                         }
                         with(binding) {
                             rcvFilm.layoutManager = LinearLayoutManager(requireActivity())
@@ -98,7 +99,7 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
                     is Resource.Success -> {
                         showData()
                         film.data?.let { listFilm ->
-                            moviesAdapter.setData(listFilm)
+                            moviesAdapter?.setData(listFilm)
                         }
                         with(binding) {
                             rcvFilm.layoutManager = LinearLayoutManager(requireActivity())
@@ -143,8 +144,11 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
+        moviesAdapter = null
     }
+
+
 }

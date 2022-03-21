@@ -1,13 +1,14 @@
 package com.razit.core.adapter
 
+import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class SectionsPagerAdapter(
-    lifeCycle: Lifecycle,
-    fm: FragmentManager,
+    @NonNull lifeCycle: Lifecycle,
+    @NonNull fm: FragmentManager,
     private val listFragment: List<Fragment>
 ) : FragmentStateAdapter(fm, lifeCycle) {
 

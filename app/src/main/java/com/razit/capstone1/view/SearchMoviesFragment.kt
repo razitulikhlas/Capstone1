@@ -29,7 +29,7 @@ class SearchMoviesFragment : Fragment(), MoviesAdapter.MoviesCallback {
     private val viewModelMovies: HomeViewModel by viewModel()
     private var _binding: FragmentSearchMoviesBinding? = null
     private val binding get() = _binding!!
-    private lateinit var moviesAdapter: MoviesAdapter
+    private  var moviesAdapter: MoviesAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +47,7 @@ class SearchMoviesFragment : Fragment(), MoviesAdapter.MoviesCallback {
         }
         binding.recyclerView.layoutManager = LinearLayoutManager(requireActivity())
         moviesAdapter = MoviesAdapter()
-        moviesAdapter.setListener(this)
+        moviesAdapter?.setListener(this)
 
         binding.searchMovies.requestFocus()
         val inputManager =
@@ -73,12 +73,12 @@ class SearchMoviesFragment : Fragment(), MoviesAdapter.MoviesCallback {
                     when (resource) {
                         is Resource.Success -> {
                             resource.data?.let {
-                                moviesAdapter.setData(it)
+                                moviesAdapter?.setData(it)
                                 binding.recyclerView.adapter = moviesAdapter
                             }
                         }
                         is Resource.Error -> {
-                            moviesAdapter.setData(null)
+                            moviesAdapter?.setData(null)
                         }
                         else -> Unit
                     }
@@ -94,8 +94,9 @@ class SearchMoviesFragment : Fragment(), MoviesAdapter.MoviesCallback {
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
         _binding = null
+        moviesAdapter = null
+        super.onDestroyView()
     }
 
 
