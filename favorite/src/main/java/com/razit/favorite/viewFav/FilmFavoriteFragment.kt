@@ -15,7 +15,7 @@ import com.razit.favorite.viewmodelFav.MoviesViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
+class FilmFavoriteFragment : Fragment(), MoviesAdapter.MoviesCallback {
 
     private var _binding: FragmentFavoriteFilmBinding? = null
     private val binding get() = _binding!!
@@ -38,10 +38,10 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
     companion object {
         const val CATEGORY = "category"
 
-        fun newInstance(category: String?): FilmFragment {
+        fun newInstance(category: String?): FilmFavoriteFragment {
             val args = Bundle()
             args.putSerializable(CATEGORY, category)
-            val fragment = FilmFragment()
+            val fragment = FilmFavoriteFragment()
             fragment.arguments = args
             return fragment
         }
@@ -83,9 +83,9 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
     }
 
     override fun onClick(movies: Film) {
-        val directions =
-            HomeFavoriteFragmentDirections.actionHomeFavoriteFragmentToDetailFragment2(movies)
-        findNavController().navigate(directions)
+//        val directions =
+//            HomeFavoriteFragmentDirections.actionHomeFavoriteFragmentToDetailFragment2(movies)
+//        findNavController().navigate(directions)
     }
 
     override fun onDestroyView() {

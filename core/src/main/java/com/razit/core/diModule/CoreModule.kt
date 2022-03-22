@@ -1,4 +1,4 @@
-package com.razit.core.di
+package com.razit.core.diModule
 
 import androidx.room.Room
 import com.razit.core.BuildConfig

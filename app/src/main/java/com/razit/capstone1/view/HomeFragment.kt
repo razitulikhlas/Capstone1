@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
             startActivity(
                 Intent(
                     requireActivity(),
-                    Class.forName("com.razit.favorite.view.FavoriteActivity")
+                    Class.forName("com.razit.favorites.viewFav.FavoriteActivity")
                 )
             )
         }

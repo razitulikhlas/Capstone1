@@ -2,13 +2,18 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation_app"
+    android:id="@+id/navigation_favorite"
     app:startDestination="@id/homeFavoriteFragment">
+
     <fragment
         android:id="@+id/homeFavoriteFragment"
-        android:name="com.razit.favorite.viewFav.HomeFavoriteFragment"
-        android:label="fragment_favorite_home"
-        tools:layout="@layout/fragment_favorite_home" />
+        android:name="com.razit.favorites.viewFav.HomeFavoriteFragment"
+        android:label="fragment_home_favorite"
+        tools:layout="@layout/fragment_home_favorite" >
+        <action
+            android:id="@+id/action_homeFavoriteFragment_to_detailFragment2"
+            app:destination="@id/detailFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/detailFragment2"
         android:name="com.razit.capstone1.view.DetailFragment"

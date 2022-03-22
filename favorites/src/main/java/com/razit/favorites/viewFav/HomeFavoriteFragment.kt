@@ -1,32 +1,34 @@
-package com.razit.favorite.viewFav
+package com.razit.favorites.viewFav
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
-import com.razit.capstone1.R
 import com.razit.core.adapter.SectionsPagerAdapter
-import com.razit.favorite.databinding.FragmentFavoriteHomeBinding
+import com.razit.favorites.databinding.FragmentHomeFavoriteBinding
 
 
 class HomeFavoriteFragment : Fragment() {
-
     private val listFragment = arrayListOf(
-        FilmFavoriteFragment.newInstance(com.razit.core.BuildConfig.MOVIES),
-        FilmFavoriteFragment.newInstance(com.razit.core.BuildConfig.TVSHOW)
+        FilmFragment.newInstance(com.razit.core.BuildConfig.MOVIES),
+        FilmFragment.newInstance(com.razit.core.BuildConfig.TVSHOW)
     )
-    private var _binding: FragmentFavoriteHomeBinding? = null
+    private var _binding: FragmentHomeFavoriteBinding? = null
     private val binding get() = _binding!!
     private var mediator: TabLayoutMediator? = null
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentFavoriteHomeBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentHomeFavoriteBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
@@ -38,9 +40,9 @@ class HomeFavoriteFragment : Fragment() {
 
         mediator = TabLayoutMediator(binding.tabs, binding.viewPagerLocal) { tab, position ->
             if (position == 0) {
-                tab.text = getString(R.string.movies)
+                tab.text = getString(com.razit.capstone1.R.string.movies)
             } else if (position == 1) {
-                tab.text = getString(R.string.tvShow)
+                tab.text = getString(com.razit.capstone1.R.string.tvShow)
             }
         }
         mediator?.attach()
@@ -53,13 +55,15 @@ class HomeFavoriteFragment : Fragment() {
         })
     }
 
+
     override fun onDestroyView() {
-        FilmFavoriteFragment.newInstance(null)
+        FilmFragment.newInstance(null)
         mediator?.detach()
         mediator = null
         binding.viewPagerLocal.adapter = null
         _binding = null
         super.onDestroyView()
     }
+
 
 }

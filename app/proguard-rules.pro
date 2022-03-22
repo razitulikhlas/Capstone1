@@ -16,6 +16,12 @@
 -keepattributes SourceFile,LineNumberTable
 -renamesourcefileattribute SourceFile
 
+-if public class ** implements androidx.navigation.NavArgs
+-keepclassmembers public class <1> {
+    public static ** Companion;
+    ** fromBundle(android.os.Bundle);
+}
+
 -keep public class com.razit.capstone1.view.DetailFragment
 
 # Uncomment this to preserve the line number information for

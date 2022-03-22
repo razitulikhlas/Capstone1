@@ -3,7 +3,7 @@ package com.razit.capstone1
 import android.app.Application
 import com.razit.capstone1.di.useCaseModule
 import com.razit.capstone1.di.viewModule
-import com.razit.core.di.*
+import com.razit.core.diModule.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
