@@ -1,10 +1,10 @@
 package com.razit.favorites.viewFav
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.razit.core.adapter.SectionsPagerAdapter
@@ -19,10 +19,7 @@ class HomeFavoriteFragment : Fragment() {
     private var _binding: FragmentHomeFavoriteBinding? = null
     private val binding get() = _binding!!
     private var mediator: TabLayoutMediator? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
