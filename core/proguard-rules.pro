@@ -24,6 +24,7 @@
 
 
 
+
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
@@ -89,3 +90,5 @@
 -keep class com.bumptech.glide.load.data.ParcelFileDescriptorRewinder$InternalRewinder {
   *** rewind();
 }
+-keepclassmembers class * { public <init>(...); }
+
