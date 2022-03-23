@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation_favorite"
+    android:id="@+id/navigation_favorites"
     app:startDestination="@id/homeFavoriteFragment">
 
     <fragment
@@ -11,13 +11,14 @@
         android:label="fragment_home_favorite"
         tools:layout="@layout/fragment_home_favorite" >
         <action
-            android:id="@+id/action_homeFavoriteFragment_to_detailFragment2"
-            app:destination="@id/detailFragment2" />
+            android:id="@+id/action_homeFavoriteFragment_to_detailFavFragment"
+            app:destination="@id/detailFavFragment" />
     </fragment>
     <fragment
-        android:id="@+id/detailFragment2"
-        android:name="com.razit.capstone1.view.DetailFragment"
-        android:label="DetailFragment" >
+        android:id="@+id/detailFavFragment"
+        android:name="com.razit.favorites.viewFav.DetailFavFragment"
+        android:label="fragment_detail_fav"
+        tools:layout="@layout/fragment_detail_fav" >
         <argument
             android:name="film"
             app:argType="com.razit.core.domain.model.Film" />

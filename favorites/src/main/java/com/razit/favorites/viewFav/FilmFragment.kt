@@ -79,9 +79,7 @@ class FilmFragment : Fragment(), MoviesAdapter.MoviesCallback {
     }
 
     override fun onClick(movies: Film) {
-        val directions = HomeFavoriteFragmentDirections.actionHomeFavoriteFragmentToDetailFragment2(
-            movies
-        )
+        val directions = HomeFavoriteFragmentDirections.actionHomeFavoriteFragmentToDetailFavFragment(movies)
         findNavController().navigate(directions)
     }
 
