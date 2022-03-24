@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.dynamicfeatures.DynamicExtras
-import androidx.navigation.dynamicfeatures.DynamicInstallMonitor
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
@@ -25,7 +23,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private var mediator: TabLayoutMediator? = null
-    private var sectionsPagerAdapter : SectionsPagerAdapter? = null
+    private var sectionsPagerAdapter: SectionsPagerAdapter? = null
 
 
     override fun onCreateView(
@@ -41,7 +39,7 @@ class HomeFragment : Fragment() {
         sectionsPagerAdapter =
             SectionsPagerAdapter(lifecycle, childFragmentManager, listFragment)
         binding.viewPager.adapter = sectionsPagerAdapter
-        binding.ivSetting.setOnClickListener {
+        binding.ivFavorite.setOnClickListener {
             startActivity(
                 Intent(
                     requireActivity(),

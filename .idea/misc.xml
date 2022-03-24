@@ -6,7 +6,7 @@
         <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/activity_main.xml" value="0.27309782608695654" />
         <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/fragment_detail.xml" value="0.27309782608695654" />
         <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/fragment_film.xml" value="0.13728470111448834" />
-        <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/fragment_home.xml" value="0.18" />
         <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/fragment_movies.xml" value="0.13728470111448834" />
         <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/fragment_search_movies.xml" value="0.2667572463768116" />
         <entry key="..\:/Belajar/MADE/Capstone1/app/src/main/res/layout/layout_error.xml" value="0.27309782608695654" />
@@ -15,7 +15,7 @@
         <entry key="..\:/Belajar/MADE/Capstone1/core/src/main/res/drawable/bg_cardview_shimmer.xml" value="0.243" />
         <entry key="..\:/Belajar/MADE/Capstone1/core/src/main/res/drawable/bg_tab_selected.xml" value="0.123" />
         <entry key="..\:/Belajar/MADE/Capstone1/core/src/main/res/drawable/ic_like.xml" value="0.123" />
-        <entry key="..\:/Belajar/MADE/Capstone1/core/src/main/res/layout/item_film.xml" value="0.15045592705167174" />
+        <entry key="..\:/Belajar/MADE/Capstone1/core/src/main/res/layout/item_film.xml" value="0.2" />
         <entry key="..\:/Belajar/MADE/Capstone1/favorite/src/main/res/layout/activity_favorite.xml" value="0.18" />
         <entry key="..\:/Belajar/MADE/Capstone1/favorite/src/main/res/layout/fragment_detail.xml" value="0.26132246376811596" />
         <entry key="..\:/Belajar/MADE/Capstone1/favorite/src/main/res/layout/fragment_favorite_detail.xml" value="0.1" />
@@ -24,9 +24,9 @@
         <entry key="..\:/Belajar/MADE/Capstone1/favorite/src/main/res/layout/fragment_film.xml" value="0.26132246376811596" />
         <entry key="..\:/Belajar/MADE/Capstone1/favorite/src/main/res/layout/fragment_home.xml" value="0.26132246376811596" />
         <entry key="..\:/Belajar/MADE/Capstone1/favorites/src/main/res/layout/activity_favorite.xml" value="0.1484375" />
-        <entry key="..\:/Belajar/MADE/Capstone1/favorites/src/main/res/layout/fragment_detail_fav.xml" value="0.264945652173913" />
+        <entry key="..\:/Belajar/MADE/Capstone1/favorites/src/main/res/layout/fragment_detail_fav.xml" value="0.2" />
         <entry key="..\:/Belajar/MADE/Capstone1/favorites/src/main/res/layout/fragment_film.xml" value="0.2171875" />
-        <entry key="..\:/Belajar/MADE/Capstone1/favorites/src/main/res/layout/fragment_home_favorite.xml" value="0.2171875" />
+        <entry key="..\:/Belajar/MADE/Capstone1/favorites/src/main/res/layout/fragment_home_favorite.xml" value="0.1" />
       </map>
     </option>
   </component>

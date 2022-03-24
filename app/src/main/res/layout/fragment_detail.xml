@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black"
     tools:context=".view.DetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +37,6 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/containerData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
@@ -148,7 +146,6 @@
             app:layout_constraintTop_toBottomOf="@id/imgPoster">
 
             <include
-                android:id="@+id/frameError"
                 layout="@layout/layout_error"
                 android:visibility="gone" />
         </LinearLayout>

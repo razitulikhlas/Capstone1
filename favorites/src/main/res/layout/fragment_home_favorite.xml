@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".viewFav.HomeFavoriteFragment">
 
@@ -35,7 +34,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#2B2B38"
-                android:contentDescription="@string/hello_blank_fragment"
                 app:tabGravity="fill"
                 app:tabIndicator="@drawable/bg_tab_selected"
                 app:tabIndicatorAnimationMode="elastic"
@@ -47,7 +45,7 @@
                 app:tabTextColor="#5C5C67" />
         </LinearLayout>
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/view_pagerLocal"
+            android:id="@+id/viewPagerLocal"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:backgroundTint="#24242F"
